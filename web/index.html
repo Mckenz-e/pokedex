@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="pokedec_app">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>pokedec_app</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Pokedex splash: same frame as lib/widgets/pokedex_frame.dart, removed on Flutter's first frame -->
+  <style>
+    html, body { height: 100%; margin: 0; background: #C1272D; }
+    #pokedex-splash {
+      position: fixed; inset: 0; box-sizing: border-box;
+      display: flex; flex-direction: column;
+      background: #C1272D; border-bottom: 4px solid #8E1B20;
+      padding-top: env(safe-area-inset-top);
+    }
+    #pokedex-splash .lights { display: flex; align-items: center; padding: 10px 18px; }
+    #pokedex-splash .lens {
+      width: 26px; height: 26px; box-sizing: border-box; border-radius: 50%;
+      background: #4FC3F7; border: 2.5px solid #FFFFFF; margin-right: 14px;
+    }
+    #pokedex-splash .dot {
+      width: 10px; height: 10px; box-sizing: border-box; border-radius: 50%;
+      border: 1px solid #8E1B20; margin-right: 7px;
+    }
+    #pokedex-splash .rim {
+      flex: 1; display: flex; min-height: 0; margin: 0 10px 12px; padding: 3px; background: #EB9A9A;
+      clip-path: polygon(10px 0, calc(100% - 24px) 0, 100% 24px, 100% calc(100% - 10px),
+        calc(100% - 10px) 100%, 24px 100%, 0 calc(100% - 24px), 0 10px);
+    }
+    #pokedex-splash .screen {
+      flex: 1; display: flex; align-items: center; justify-content: center; background: #CFE3D6;
+      clip-path: polygon(9px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 9px),
+        calc(100% - 9px) 100%, 22px 100%, 0 calc(100% - 22px), 0 9px);
+    }
+    #pokedex-splash img { width: 96px; height: 96px; }
+  </style>
+</head>
+<body>
+  <div id="pokedex-splash" aria-hidden="true">
+    <div class="lights">
+      <div class="lens"></div>
+      <div class="dot" style="background:#E53935"></div>
+      <div class="dot" style="background:#FDD835"></div>
+      <div class="dot" style="background:#43A047"></div>
+    </div>
+    <div class="rim"><div class="screen"><img src="splash/pokeball.png" alt=""></div></div>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var splash = document.getElementById('pokedex-splash');
+      if (splash) splash.remove();
+    });
+  </script>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

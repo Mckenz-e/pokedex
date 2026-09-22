@@ -1,0 +1,14 @@
+
+flutter_native_splash:
+
+  background_image: lib/assets/splash/frame_background.png
+  image: lib/assets/splash/splash.png
+
+  android_12:
+    image: lib/assets/splash/splash_android12.png
+    color: "#CFE3D6"
+
+  android: true
+  web: false
+
+  ios: false
