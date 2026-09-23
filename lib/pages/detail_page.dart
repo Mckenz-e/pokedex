@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/pokemon.dart';
 import '../providers/favorite_provider.dart';
+import '../services/image_cache.dart';
 import '../services/pokemon_service.dart';
 import '../widgets/type_chip.dart';
 
@@ -111,11 +112,15 @@ class _DetailPageState extends State<DetailPage> {
             tag: 'pokemon-${p.id}',
             child: CachedNetworkImage(
               imageUrl: p.imageUrl,
+              cacheManager: pokedecImageCache,
               height: 220,
               // ระหว่างรอรูปใหญ่ ใช้รูปเล็กที่โหลดไว้แล้วจากหน้า Grid -> Hero บินได้ลื่น ไม่ว่าง
               placeholder: (context, url) {
                 return Image(
-                  image: CachedNetworkImageProvider(p.spriteUrl),
+                  image: CachedNetworkImageProvider(
+                    p.spriteUrl,
+                    cacheManager: pokedecImageCache,
+                  ),
                   height: 220,
                   filterQuality: FilterQuality.none,
                 );

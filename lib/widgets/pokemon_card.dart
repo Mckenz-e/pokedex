@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../models/pokemon.dart';
 import '../pages/detail_page.dart';
 import '../providers/favorite_provider.dart';
+import '../services/image_cache.dart';
 import '../services/pokemon_service.dart';
 import 'type_chip.dart';
 
@@ -34,9 +35,16 @@ class PokemonCard extends StatelessWidget {
       tag: 'pokemon-${pokemon.id}',
       child: CachedNetworkImage(
         imageUrl: pokemon.spriteUrl,
+        cacheManager: pokedecImageCache,
         filterQuality: FilterQuality.none, // ขยาย pixel art ให้คม ไม่เบลอ
+        fadeInDuration: const Duration(milliseconds: 150),
+        // ไม่ใช้วงกลมหมุน เพราะเปิดแอปใหม่ต้อง decode รูปจากดิสก์ทุกครั้ง
+        // วงกลมหมุนแวบ ๆ ทำให้รู้สึกเหมือนกำลังโหลดใหม่ทั้งที่ไม่ได้ใช้เน็ต
         placeholder: (context, url) {
-          return const Center(child: CircularProgressIndicator(strokeWidth: 2));
+          return Center(
+            child: Icon(Icons.catching_pokemon,
+                size: 32, color: Colors.grey.shade400),
+          );
         },
         errorWidget: (context, url, error) {
           return const Icon(Icons.catching_pokemon, size: 40);
