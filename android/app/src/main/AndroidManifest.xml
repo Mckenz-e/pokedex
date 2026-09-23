@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="pokedec_app"
+        android:label="Pokédex"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

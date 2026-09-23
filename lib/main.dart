@@ -41,12 +41,12 @@ class PokedexApp extends StatelessWidget {
     final themeMode = context.watch<SettingsProvider>().themeMode;
 
     return MaterialApp(
-      title: 'Pokedex',
+      title: 'Pokédex',
       debugShowCheckedModeBanner: false,
       themeMode: themeMode,
       theme: pokedexTheme(Brightness.light),
       darkTheme: pokedexTheme(Brightness.dark),
-      //* ครอบทุกหน้าด้วยกรอบเครื่อง Pokedex
+      //* ครอบทุกหน้าด้วยกรอบเครื่อง Pokédex
       builder: (context, child) {
         return PokedexFrame(child: child!);
       },

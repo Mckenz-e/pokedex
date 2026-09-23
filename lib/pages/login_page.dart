@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const Icon(Icons.catching_pokemon, size: 96, color: Colors.red),
                 const SizedBox(height: 8),
-                Text('Pokedex',
+                Text('Pokédex',
                     style: Theme.of(context).textTheme.headlineMedium),
                 const SizedBox(height: 32),
                 TextFormField(

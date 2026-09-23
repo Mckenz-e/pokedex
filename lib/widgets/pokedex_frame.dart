@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-//* สีของตัวเครื่อง Pokedex (ใช้เฉพาะงานหน้าตา ไม่เกี่ยวกับ logic)
+//* สีของตัวเครื่อง Pokédex (ใช้เฉพาะงานหน้าตา ไม่เกี่ยวกับ logic)
 const Color _bodyRed = Color(0xFFC1272D);
 const Color _bodyShadow = Color(0xFF8E1B20);
 const Color _rimLight = Color(0xFFEB9A9A);
 const Color _screenLight = Color(0xFFCFE3D6);
 const Color _screenDark = Color(0xFF12302B);
 
-//* ธีมของแอป: พื้นหลัง Scaffold = จอ Pokedex, AppBar โปร่งใสให้เห็นจอ
+//* ธีมของแอป: พื้นหลัง Scaffold = จอ Pokédex, AppBar โปร่งใสให้เห็นจอ
 ThemeData pokedexTheme(Brightness brightness) {
   final bool isDark = brightness == Brightness.dark;
 
@@ -27,7 +27,7 @@ ThemeData pokedexTheme(Brightness brightness) {
   );
 }
 
-//* กรอบเครื่อง Pokedex ครอบทุกหน้าผ่าน MaterialApp.builder
+//* กรอบเครื่อง Pokédex ครอบทุกหน้าผ่าน MaterialApp.builder
 class PokedexFrame extends StatelessWidget {
   final Widget child;
 
@@ -123,7 +123,7 @@ class _SmallLight extends StatelessWidget {
   }
 }
 
-//* ตัดมุมจอให้เป็นเหลี่ยมแบบ Pokedex (มุมขวาบน/ซ้ายล่างตัดเยอะกว่า)
+//* ตัดมุมจอให้เป็นเหลี่ยมแบบ Pokédex (มุมขวาบน/ซ้ายล่างตัดเยอะกว่า)
 class _ScreenClipper extends CustomClipper<Path> {
   final double chamfer;
   final double corner;

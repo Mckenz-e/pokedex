@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
         _selectedType = null;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not load $newType Pokemon. Check your internet.')),
+        SnackBar(content: Text('Could not load $newType Pokémon. Check your internet.')),
       );
     }
   }
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        title: const Text('Pokedex'),
+        title: const Text('Pokédex'),
         actions: [
           IconButton(
             icon: const Icon(Icons.favorite),
@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const Text(
-                            'Could not load Pokemon. Check your internet.'),
+                            'Could not load Pokémon. Check your internet.'),
                         TextButton(
                             onPressed: _retry, child: const Text('Retry')),
                       ],
@@ -204,7 +204,7 @@ class _HomePageState extends State<HomePage> {
 
                 final list = _filter(snapshot.data!);
                 if (list.isEmpty) {
-                  return const Center(child: Text('No Pokemon found'));
+                  return const Center(child: Text('No Pokémon found'));
                 }
 
                 // ListView.builder / GridView.builder สร้างเฉพาะที่เห็นบนจอ -> รูปโหลดทีละนิดเอง

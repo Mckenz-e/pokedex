@@ -12,7 +12,7 @@ class FavoriteService {
   }
 
   Stream<List<PokemonSummary>> streamFavorites(String uid) {
-    // เรียงตามเลข Pokedex ในเครื่อง (ไม่ใช้ orderBy เพื่อไม่ต้องรอ serverTimestamp)
+    // เรียงตามเลข Pokédex ในเครื่อง (ไม่ใช้ orderBy เพื่อไม่ต้องรอ serverTimestamp)
     return _collection(uid).snapshots().map((snap) {
       final list = snap.docs.map((d) {
         return PokemonSummary.fromJson(d.data());
@@ -24,7 +24,7 @@ class FavoriteService {
     });
   }
 
-  // ใช้ id ของ Pokemon เป็น document id -> กดซ้ำจะไม่เกิดข้อมูลซ้ำ
+  // ใช้ id ของ Pokémon เป็น document id -> กดซ้ำจะไม่เกิดข้อมูลซ้ำ
   Future<void> addFavorite(String uid, PokemonSummary pokemon) {
     return _collection(uid).doc('${pokemon.id}').set({
       ...pokemon.toJson(),

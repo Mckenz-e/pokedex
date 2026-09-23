@@ -14,7 +14,7 @@ class FavoritesPage extends StatelessWidget {
       appBar: AppBar(title: Text('Favorites (${favorites.length})')),
       body: favorites.isEmpty
           ? const Center(
-              child: Text('No favorites yet. Tap the heart on a Pokemon!'))
+              child: Text('No favorites yet. Tap the heart on a Pokémon!'))
           : ListView.builder(
               itemCount: favorites.length,
               itemBuilder: (context, i) {

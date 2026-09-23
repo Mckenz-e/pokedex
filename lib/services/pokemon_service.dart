@@ -10,7 +10,7 @@ class PokemonService {
   static final Map<int, PokemonDetail> _detailCache = {};
   static final Map<String, Set<int>> _typeCache = {};
   static final Map<String, String> _abilityCache = {};
-  // ธาตุของ Pokemon แต่ละตัว (slot 1 อยู่หน้าเสมอ) ใช้โชว์บนการ์ด
+  // ธาตุของ Pokémon แต่ละตัว (slot 1 อยู่หน้าเสมอ) ใช้โชว์บนการ์ด
   static final Map<int, List<String>> _typesById = {};
 
   // ชื่อธาตุทั้ง 18 ต้องตรงกับ key ใน typeColors (widgets/type_chip.dart)
@@ -27,7 +27,7 @@ class PokemonService {
 
     final response = await http.get(Uri.parse('$baseUrl/pokemon?limit=100000'));
     if (response.statusCode != 200) {
-      throw Exception('Failed to load Pokemon list (${response.statusCode})');
+      throw Exception('Failed to load Pokémon list (${response.statusCode})');
     }
 
     final data = jsonDecode(response.body) as Map<String, dynamic>;
@@ -40,13 +40,13 @@ class PokemonService {
     return _allCache!;
   }
 
-  //* โหลดข้อมูลเต็มของ Pokemon 1 ตัว
+  //* โหลดข้อมูลเต็มของ Pokémon 1 ตัว
   Future<PokemonDetail> fetchDetail(int id) async {
     if (_detailCache.containsKey(id)) return _detailCache[id]!;
 
     final response = await http.get(Uri.parse('$baseUrl/pokemon/$id'));
     if (response.statusCode != 200) {
-      throw Exception('Failed to load Pokemon #$id (${response.statusCode})');
+      throw Exception('Failed to load Pokémon #$id (${response.statusCode})');
     }
 
     final detail = PokemonDetail.fromApi(jsonDecode(response.body));
@@ -54,7 +54,7 @@ class PokemonService {
     return detail;
   }
 
-  //* โหลด id ของ Pokemon ทุกตัวในธาตุนั้น (1 request ต่อธาตุ แล้วเก็บไว้)
+  //* โหลด id ของ Pokémon ทุกตัวในธาตุนั้น (1 request ต่อธาตุ แล้วเก็บไว้)
   Future<Set<int>> fetchTypeIds(String type) async {
     if (_typeCache.containsKey(type)) return _typeCache[type]!;
 
@@ -71,7 +71,7 @@ class PokemonService {
     return ids;
   }
 
-  //* ธาตุของ Pokemon ทุกตัว โหลด 18 requests พร้อมกันครั้งเดียว
+  //* ธาตุของ Pokémon ทุกตัว โหลด 18 requests พร้อมกันครั้งเดียว
   //  (list endpoint ไม่มีธาตุมาให้ ถ้าโหลดทีละตัวจะ ~1,000 requests)
   Future<void> fetchAllTypes() async {
     if (_typesById.isNotEmpty) return;
@@ -108,7 +108,7 @@ class PokemonService {
     _typeCache[type] = ids;
   }
 
-  //* ธาตุของ Pokemon 1 ตัว (ว่าง = ยังโหลดไม่เสร็จ) การ์ดเรียกใช้ตรง ๆ ไม่ต้องรอ
+  //* ธาตุของ Pokémon 1 ตัว (ว่าง = ยังโหลดไม่เสร็จ) การ์ดเรียกใช้ตรง ๆ ไม่ต้องรอ
   static List<String> typesOf(int id) {
     return _typesById[id] ?? const [];
   }
