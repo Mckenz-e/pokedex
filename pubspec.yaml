@@ -1,5 +1,5 @@
 name: pokedex_app
-description: "Pokédex app - browse Pokémon, save favorites, build teams."
+description: "Pokédec app - browse Pokémon, save favorites, build teams."
 publish_to: 'none'
 version: 1.0.0+1
 

@@ -1,6 +1,6 @@
 {
-    "name": "Pokédex",
-    "short_name": "Pokédex",
+    "name": "Pokédec",
+    "short_name": "Pokédec",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#181B1D",

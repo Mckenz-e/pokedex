@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        title: const Text('Pokédex'),
+        title: const Text('Pokédec'),
         actions: [
           IconButton(
             icon: const Icon(Icons.favorite),

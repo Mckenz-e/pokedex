@@ -10,7 +10,6 @@ class PokemonService {
   static final Map<int, PokemonDetail> _detailCache = {};
   static final Map<String, Set<int>> _typeCache = {};
   static final Map<String, String> _abilityCache = {};
-  // ธาตุของ Pokémon แต่ละตัว (slot 1 อยู่หน้าเสมอ) ใช้โชว์บนการ์ด
   static final Map<int, List<String>> _typesById = {};
 
   // ชื่อธาตุทั้ง 18 ต้องตรงกับ key ใน typeColors (widgets/type_chip.dart)
